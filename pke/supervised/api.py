@@ -29,7 +29,7 @@ class SupervisedLoadFile(LoadFile):
         """ Scale features to [0,1]. """
 
         candidates = self.instances.keys()
-        X = [self.instances[u] for u in candidates]
+        X = [np.array(self.instances[u]) for u in candidates]
         X = np.matrix(X)
         X = MinMaxScaler().fit_transform(X)
         for i, candidate in enumerate(candidates):
