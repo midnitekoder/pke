@@ -204,7 +204,7 @@ class WINGNUS(SupervisedLoadFile):
         maximum_offset = float(sum([s.length for s in self.sentences]))
 
         # loop through the candidates
-        for k, v in self.candidates.iteritems():
+        for k, v in self.candidates.items():
 
             # initialize features array
             feature_array = []
