@@ -7,7 +7,7 @@ from __future__ import absolute_import
 
 import os
 import pickle
-
+import numpy as np
 from pke.base import LoadFile
 from sklearn.preprocessing import MinMaxScaler
 
@@ -30,6 +30,7 @@ class SupervisedLoadFile(LoadFile):
 
         candidates = self.instances.keys()
         X = [self.instances[u] for u in candidates]
+        X = np.matrix(X)
         X = MinMaxScaler().fit_transform(X)
         for i, candidate in enumerate(candidates):
             self.instances[candidate] = X[i]
